@@ -1,0 +1,18 @@
+{
+  "name": "playvibe",
+  "version": "1.0.0",
+  "description": "PlayVibe — Monorepo: Frontend (React/Vite/Tailwind) + Backend (Node/Express/Sequelize/MySQL)",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix Frontend && npm install --prefix Backend",
+    "dev": "npm run docker:up",
+    "dev:frontend": "npm run dev --prefix Frontend",
+    "dev:backend": "npm run dev --prefix Backend",
+    "build": "npm run build --prefix Frontend",
+    "docker:up": "docker compose -f Frontend/docker-compose.yml up --build -d && docker compose -f Backend/docker-compose.yml up --build -d",
+    "docker:down": "docker compose -f Frontend/docker-compose.yml down && docker compose -f Backend/docker-compose.yml down",
+    "docker:logs:frontend": "docker compose -f Frontend/docker-compose.yml logs -f",
+    "docker:logs:backend": "docker compose -f Backend/docker-compose.yml logs -f",
+    "docker:clean": "docker compose -f Frontend/docker-compose.yml down --volumes --remove-orphans && docker compose -f Backend/docker-compose.yml down --volumes --remove-orphans"
+  }
+}

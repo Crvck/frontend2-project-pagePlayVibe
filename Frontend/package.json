@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5173",
     "build": "vite build",
+    "preview": "vite preview",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "install:docker": "docker compose run --rm frontend sh -lc 'npm install'"
   },
   "dependencies": {
     "react": "^19.2.4",
