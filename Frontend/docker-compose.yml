@@ -1,0 +1,20 @@
+services:
+  frontend:
+    build: .
+    container_name: frontend-vite-app
+    working_dir: /app
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./index.html:/app/index.html
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
+      - ./vite.config.js:/app/vite.config.js
+      - ./eslint.config.js:/app/eslint.config.js
+      - frontend_node_modules:/app/node_modules
+    command: sh -lc "npm install && npm run dev"
+
+volumes:
+  frontend_node_modules:
